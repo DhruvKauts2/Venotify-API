@@ -7,6 +7,7 @@ const Login = require('./models/login')
 const Announcement = require('./models/announcement')
 app.use(bodyParser.json());
 
+const port = process.env.PORT || 5000;
 const DB = "mongodb+srv://Dhruv:Dhruv123@cluster0.bxgwe.mongodb.net/Venotify?retryWrites=true&w=majority"   //Database link + authentication
 
 mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => { //This function connects to the database
@@ -115,7 +116,7 @@ app.post('/HomePage/Date', async(req,res)=>{
 
 
 
-app.listen(process.env.PORT || 5000,() => { //This function activates the server
+app.listen(port,() => { //This function activates the server
     console.log('server is running on port 5000');
 })
 
